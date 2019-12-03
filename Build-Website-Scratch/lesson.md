@@ -2,22 +2,24 @@
 
 This workshop contains the following activities:
 * Interact with HTML, CSS and JavaScript code as the foundation of website code
-* Setup a Wordpress instance on Heroku with a free account
-* Create and deploy your new Wordpress website on Heroku
+* Setup a Wordpress instance on **000Webhost** with a free account
+* Create and deploy your new Wordpress website on 000Webhost
+
+Goal: Get a flavour of the various website development and analysis tools that exist
 
 ## Setup
-* Create a free account on `https://repl.it`
+* Create a free account on https://repl.it
 
-* Create a 'free account' on 
+* Create a 'free account' on 000Webhost - https://www.000webhost.com/
 
 * Create a free Google account, which will be used for Google Analytics
 
 ## HTML, CSS and JS (JavaScript)
 We are going to interact with the various key code components of websites using `repl.it`. HTML (structure) + CSS (style) + JS (interaction)  = webpage
 
-We are going to create a travel blog website from scratch!
+We are going to create a custom travel blog website from scratch! **Everyone picks a city or country to visit**
 
-> At the bottom of `https://repl.it` after you've setup your account, select the language `HTML, CSS, JS`:
+> At the bottom of `https://repl.it` after you've setup your account, select the language `HTML, CSS, JS` for your new repl:
 
 ![Repl Languages](images/repl_languages.png)
 
@@ -26,6 +28,8 @@ We are going to create a travel blog website from scratch!
 ![Sample Website Project Name](images/samplewebsite_intro.png)
 
 When you run the boilerplate website code, your website is running on a custom domain - `https://sampleWebsite.hraisinghani.repl.co` in the above case. Our website is live in real-time on the internet!
+
+Also in terms of the repl layout, we have the file directory and package manager in our left window pane, our code in the middle, and the output on the right - both the graphical visual output of our website in the 'result' tab and any specific code output or logging in our 'console' tab. 
 
 ### HTML
 To cover:
@@ -56,7 +60,9 @@ To cover:
 
 * Element references inside of `<>` are called **tags**. For example, `<p>`, `<h1>`, `<head>`, `<body>`.
 
-Some key components in our template code:
+* Most elements require both an opening and closing tag.
+
+Some key elements in our template code:
 * `<!DOCTYPE html>` - tells browsers which version of HTML is used
   
 * `<html></html>` - HTMl root element contains one `<head>` and one `<body>` element.
@@ -69,16 +75,46 @@ Some key components in our template code:
 
 > Add in the following into the `<body></body>` element:
 * A heading level 1: `<h1> Your Header </h1>`
+* A 2 x sub-heading level 2: `<h2>Secondary Header </h2>`
 
-* Two paragraphs: `<p> Your paragraph text </p>`
+* Add Two paragraphs: `<p> Your paragraph text </p>`
 
-* An image from the web: `<img src='https://via.placeholder.com/150' height="150" width="150"`>
+* An image from the web (unsplash.com): `<img src='https://via.placeholder.com/150' height="150" width="150"`>
+  * Note the features on an image tag:
+    * The `src` of the image. It could be a website or a local file
+    * The dimensions of the picture
+  * Can also download an image file, upload it to repl.it and source it as `src='image.jpg'` for example. 
 
-* A web link to another site: `<a href="https://example.com"> Text for your Link </a>`
+```
+<img src="sydney.jpg" height="300" width="400">
+```
 
-The `<div></div>` tags represent a container unit which help divide the HTML document and group together elements into sections. 
+* A web link to another site: `<a href="https://example.com"> Text for your Link </a>` . For example:
+```
+<p> Check out my list of favourite things to see in Sydney <a href="https://www.planetware.com/tourist-attractions-/sydney-aus-nsw-s.htm">here!</a>
+```
 
-> Add `<div></div>` tags around each of your paragraphs
+> Now add in a video using an `<iframe>` element. We can easily add in video from say YouTube by using the *embed code* and adding that to our iframe element as follows:
+```
+<iframe width="905" height="509" src="https://www.youtube.com/embed/0hm9stchT8E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+
+The `<div></div>` tags represent a container unit which help divide the HTML document and group together elements into sections. Think of a div as a fundamental unit container that you can build ontop (i.e. containers within containers)
+
+> Add `<div></div>` tags around each of your paragraphs. For example, the first paragraph could be an intro paragraph and the second a section on travel. 
+
+> Add a `<div></div>` tag around all the elements in our `<body>`. This will essentially be our master container. 
+
+#### Box Model
+
+All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.
+
+The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. The image below illustrates the box model:
+
+https://www.w3schools.com/css/css_boxmodel.asp
+
+![Box model](images/box_model.png)
 
 ### CSS (for Styling)
 There is an ocean of knowledge on the subject of CSS and best practices. For an intro tutorial, see: https://www.w3schools.com/css/css_intro.asp 
@@ -120,7 +156,7 @@ To use an external style sheet, add a `<link>` element to it in the `<head>` sec
 ```
 
 #### Classes vs. IDs
-* Classes - used to denote multiple elements that will receive the same sytling. In the HTML code, classess are denoted using the element keyword `class` in an HTML element:
+* Classes - used to denote multiple elements that will receive the same styling. In the HTML code, classes are denoted using the element keyword `class` in an HTML element:
 
 ```
 <div class="introduction-section">
@@ -145,6 +181,59 @@ In your external CSS file (i.e. `style.css`), class names are referenced with a 
 ```
 
 > Replace any inline and internal CSS styling with external CSS defined in `style.css`.
+
+### Bootstrap
+Bootstrap (https://getbootstrap.com/) is one of the most popular front-end libraries in the world! It contains templates for standardizing things such as the overall website grid and components. 
+
+To get started: https://getbootstrap.com/docs/4.4/getting-started/introduction/
+
+Let's start by adding the Bootstrap styling or CSS to our website. Simply copy the following into the header before applying our custom `style.css` styling:
+```
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+```
+Q) Why do we put this before our custom css file?
+
+Normally you also add in the JavaScript code in the `<body>` before your custom `script.js` file but we won't get into that here.
+
+* Note how our styling changes as we add the Bootstrap code! But our custom changes are still maintained given the order the stylesheets are loaded in.
+
+
+#### Bootstrap Grid System
+
+One of the more powerful aspects of Bootstrap is its inherent grid system. We won't get into much of the details, but here's a quick example to help explain the concept:
+
+https://getbootstrap.com/docs/4.4/layout/grid/#how-it-works
+
+Also for individual reading - https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background
+
+Bootstrap effectively divides the webpage into a max of 12 columns.
+
+> Add the `container` class to the master `<div>` and then create 1 row and then 3 columns within that row, like in the example, and **add images** to each of the 3 column div's. 
+```
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
+```
+
+The above example creates three equal-width columns on small, medium, large, and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent .container.
+
+#### Inspect tools using Chrome
+
+* Can visualize the overall grid system as well as the margin, border and padding. The Inspect tool is very powerful, and also allows you to go to other websites, and see what underlying styling they use if you want to use some of their color palettes or elements, etc..
+
+![Chrome inspect tool](images/inspect_tool.png)
+
+
 
 ### JS
 * Used to add behaviour to your webpage
@@ -204,6 +293,7 @@ Tracking websites provides useful insights into what pages your users are viewin
 There is a **ton** of information in Google Analytics so have fun exploring all the interesting data available!
 
 ## Using a Wordpress Hosting Site
+Wordpress is probably the most popular website building framework in the world and allows you to build quickly using templates and a graphical interface. You can also use your own html/css code to some degree. 
 
 ### Setup with 000webhost
 
