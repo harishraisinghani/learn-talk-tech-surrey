@@ -1,4 +1,4 @@
-# Introduction to Datascience and Python for Finance
+# Introduction to Data Science and Python for Finance
 
 ## Jupyter notebook setup
 Download the `ipynb` notebook file here and run it using Jupyter in the browser by:
