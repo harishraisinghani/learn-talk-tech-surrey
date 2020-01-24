@@ -1,7 +1,9 @@
 # Introduction to Data Science and Python for Finance
+This workshop contains both a **Simplified Version** notebook for beginners to Python programming and a **Full version** notebook for more advanced programmers. 
 
 ## Jupyter notebook setup
-Download the `ipynb` notebook file here and run it using Jupyter in the browser by:
+Download the desired `ipynb` notebook file listed and run it using Jupyter in the browser by:
+
 1. Go to https://jupyter.org/try
 1. Click on `Try Classic Notebook`
 1. Once your default Jupyter notebook has opened, select `File -> Open`
@@ -17,3 +19,5 @@ Download the `ipynb` notebook file here and run it using Jupyter in the browser 
 1. You will receive an account verification email at the address used for setup.
 1.  Once you have verified your account, select the `API Tokens` left-hand menu item
 1. Copy the public key (starts with `pk...`) and paste into the cell in your Jupyter notebook which has the line: `os.environ["IEX_API_KEY"] ="paste your API key here"`
+
+Note - this basic plan limits the number of API calls and data which can be accessed so you may run into `rate-limit` related errors if you try to pull too much data from IEX.
